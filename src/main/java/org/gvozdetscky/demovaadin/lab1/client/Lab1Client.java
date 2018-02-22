@@ -11,6 +11,7 @@ import org.gvozdetscky.demovaadin.lab1.server.Lab1;
 import org.gvozdetscky.demovaadin.lab1.server.model.Record;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.IOException;
 import java.util.List;
 
 @Theme("valo")
@@ -35,12 +36,16 @@ public class Lab1Client extends UI {
 		generate();
 
 		Button euclideanDistanceBtn = new Button("По эвклиду");
-		euclideanDistanceBtn.addClickListener(click -> resultLabel.setValue(
-				"Алгоритм работал " + lab1.run(Lab1.EVCLID_MOD) + " раз по эвклиду"));
+		euclideanDistanceBtn.addClickListener(click -> {
+			resultLabel.setValue(
+					"Алгоритм работал " + lab1.run(Lab1.EVCLID_MOD) + " раз по эвклиду");
+		});
 
 		Button manhatanDistanceBtn = new Button("По манхэтану");
-		manhatanDistanceBtn.addClickListener(click -> resultLabel.setValue(
-				"Алгоритм работал " + lab1.run(Lab1.MANCHTAN_MOD)  + " раз по манхэтану"));
+		manhatanDistanceBtn.addClickListener(click -> {
+			resultLabel.setValue(
+					"Алгоритм работал " + lab1.run(Lab1.MANCHTAN_MOD)  + " раз по манхэтану");
+		});
 
 		Button generateBtn = new Button("генерировать");
 		generateBtn.setStyleName(ValoTheme.BUTTON_PRIMARY);
@@ -49,7 +54,7 @@ public class Lab1Client extends UI {
 			resultLabel.setValue("");
 		});
 
-		Label label = new Label("Дабораторная 1");
+		Label label = new Label("Лабораторная 1");
 		label.setStyleName(ValoTheme.LABEL_H1);
 
 		HorizontalLayout layoutBtn = new HorizontalLayout();
